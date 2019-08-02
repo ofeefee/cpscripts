@@ -27,7 +27,6 @@ for name in ${objarray[@]}; do
      status=$(echo $scriptjson | jq -r '.tasks[0]["task-details"][0].statusCode')
      statusdesc=$(echo $scriptjson | jq -r '.tasks[0]["task-details"][0].statusDescription')
      response=$(echo $scriptjson | $CPDIR/jq/jq -r '(.tasks[0]["task-details"][0].responseMessage)' | base64 -di)
-
      if [ "$status" = "failed" ]
      then
           echo $name, $status, $statusdesc
