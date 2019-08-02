@@ -40,7 +40,7 @@ for name in ${objarray[@]}; do
           then
                echo $response >> $outfile
           else
-               echo $scriptjson | $CPDIR/jq/jq -r '(.tasks[0]["task-details"][0].responseMessage)' | base64 -di >> $outfile     
+               echo $scriptjson | jq -r '(.tasks[0]["task-details"][0].responseMessage)' | base64 -di >> $outfile     
           fi
      fi
 done
